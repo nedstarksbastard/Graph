@@ -7,9 +7,18 @@
 //
 
 #include <iostream>
+#include "vertex.h"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
+    Vertex v1('a');
+    Vertex v2('b');
+    v1.addNeighbor('b', 9);
+    for (auto i: v1.getConnections())
+        std::cout << i << ' ';
+    
+    
+    
     return 0;
 }
