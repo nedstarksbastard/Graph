@@ -15,14 +15,16 @@
 
 class Vertex {
     char _id;
-    std::map<char, int> _adjList;
+    std::multimap<int, std::shared_ptr<Vertex>> _adjList;
     
 public:
-    void addNeighbor(char neighbor, int weight);
-    std::vector<char> getConnections();
+    void addNeighbor(int weight,std::shared_ptr<Vertex> neighbor);
+    std::vector<std::pair<int,char>> getConnections();
     char getId();
-    int getWeight(Vertex, char neighbor);
+    int getWeight(Vertex);
     Vertex(char);
+    friend bool operator== (Vertex & lhs, Vertex & rhs );
+    
 };
 
 #endif /* defined(__graphs__vertex__) */
